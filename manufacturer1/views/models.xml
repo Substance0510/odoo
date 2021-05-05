@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="product_models_tree" model="ir.ui.view">
+        <field name="name">product.models.tree</field>
+        <field name="model">product.models</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="product_models"/>
+                <field name="manufacturer_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="product_models_form" model="ir.ui.view">
+        <field name="name">product.models.form</field>
+        <field name="model">product.models</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="product_models"/>
+                            <field name="manufacturer_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="models_action" model="ir.actions.act_window">
+        <field name="name">Model</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.models</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create new model.
+            </p>
+        </field>
+    </record>
+
+    <!-- Top menu item -->
+    <menuitem id="models_root"
+              name="Model"
+              action="models_action"
+              parent="sale.menu_sale_config"/>
+
+</odoo>
